@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: clamp(12px, 4vw, 32px);
+}
+
+h1 {
+  font-size: clamp(20px, 5vw, 28px);
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.control {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(14px, 3vw, 16px);
+  gap: 4px;
+}
+
+.control select {
+  min-height: 48px;
+  font-size: clamp(16px, 3.5vw, 18px);
+  padding: 8px;
+}
+
+.empty-message {
+  text-align: center;
+  color: #86868b;
+  font-size: clamp(14px, 3.5vw, 16px);
+}
+
+.quiz-card {
+  background: white;
+  border-radius: 16px;
+  padding: clamp(16px, 5vw, 32px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.zh-sentence {
+  font-size: clamp(20px, 5.5vw, 28px);
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+.en-wrapper {
+  position: relative;
+  min-height: clamp(48px, 12vw, 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.en-sentence {
+  font-size: clamp(18px, 5vw, 24px);
+  text-align: center;
+  margin: 0;
+}
+
+.en-cover {
+  position: absolute;
+  inset: 0;
+  background: #1d1d1f;
+  border-radius: 8px;
+}
+
+.en-cover[hidden] {
+  display: none;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.btn {
+  min-height: 48px;
+  padding: 0 clamp(16px, 4vw, 24px);
+  font-size: clamp(15px, 3.5vw, 18px);
+  border: none;
+  border-radius: 12px;
+  background: #e5e5ea;
+  color: #1d1d1f;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #0071e3;
+  color: white;
+}
+
+.btn-file {
+  display: inline-flex;
+  align-items: center;
+}
+
+.bank-io {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 400px) {
+  .button-row {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+  }
+}
