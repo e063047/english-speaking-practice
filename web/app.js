@@ -1,5 +1,16 @@
 (function () {
-  var storage = window.localStorage;
+  var storage = (function () {
+    try {
+      window.localStorage.getItem("t");
+      return window.localStorage;
+    } catch (e) {
+      var mem = {};
+      return {
+        getItem: function (k) { return k in mem ? mem[k] : null; },
+        setItem: function (k, v) { mem[k] = String(v); }
+      };
+    }
+  })();
   var sentences = window.SENTENCES || [];
 
   var categorySelect = document.getElementById("category-select");
@@ -15,6 +26,13 @@
   var nextButton = document.getElementById("next-button");
   var exportBankButton = document.getElementById("export-bank-button");
   var importBankInput = document.getElementById("import-bank-input");
+
+  if (!window.SENTENCES || window.SENTENCES.length === 0) {
+    emptyMessage.textContent = "題目資料載入失敗，請確認 data/sentences.js 存在（或重新執行 convert_excel.py）。";
+    emptyMessage.hidden = false;
+    quizCard.hidden = true;
+    return;
+  }
 
   var queue = null;
   var currentSentence = null;
@@ -119,7 +137,7 @@
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
   });
 
   importBankInput.addEventListener("change", function () {
