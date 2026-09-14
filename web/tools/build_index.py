@@ -10,6 +10,7 @@ editing style.css, app.js, js/quiz-logic.js, or js/bank-store.js.
 from pathlib import Path
 
 WEB_DIR = Path(__file__).resolve().parent.parent
+REPO_ROOT = WEB_DIR.parent
 
 
 def build():
@@ -29,6 +30,11 @@ def build():
 
     (WEB_DIR / "index.html").write_text(output, encoding="utf-8")
     print(f"已產生自包含的 {WEB_DIR / 'index.html'}")
+
+    # Also write a copy at the repo root so GitHub Pages ("Deploy from
+    # branch: main / (root)") can serve it directly, no CI workflow needed.
+    (REPO_ROOT / "index.html").write_text(output, encoding="utf-8")
+    print(f"已同步一份到 {REPO_ROOT / 'index.html'}（供 GitHub Pages 使用）")
 
 
 if __name__ == "__main__":
