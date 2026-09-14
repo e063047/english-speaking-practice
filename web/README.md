@@ -1,5 +1,7 @@
 # 英文口說練習網頁
 
+GitHub: https://github.com/e063047/english-speaking-practice
+
 ## 如何使用
 直接用瀏覽器打開 `index.html` 即可（電腦、iPhone、iPad 皆可，Safari/Chrome 都支援）。
 把整個 `web` 資料夾複製到 iPhone/iPad 上（例如透過 AirDrop 或 iCloud 雲端硬碟），
