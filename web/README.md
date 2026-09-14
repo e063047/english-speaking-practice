@@ -3,9 +3,12 @@
 GitHub: https://github.com/e063047/english-speaking-practice
 
 ## 如何使用
-直接用瀏覽器打開 `index.html` 即可（電腦、iPhone、iPad 皆可，Safari/Chrome 都支援）。
-把整個 `web` 資料夾複製到 iPhone/iPad 上（例如透過 AirDrop 或 iCloud 雲端硬碟），
-再用 Safari 開啟裡面的 `index.html`。
+`index.html` 是一個單一、自包含的檔案（樣式、程式碼、題庫資料都打包在裡面），**只需要傳這一個檔案**就能用，不用整個 `web` 資料夾都傳過去。
+
+- **電腦**：直接雙擊 `index.html` 用瀏覽器打開。
+- **iPhone / iPad**：把 `index.html` 這一個檔案 AirDrop 或用 iCloud 雲端硬碟傳過去，在「檔案」App 裡點它，用 Safari 開啟。
+
+> 之前版本是拆成好幾個檔案（`style.css`、`app.js`、`js/`、`data/` 資料夾），在 iPhone 上用「檔案」App 開啟時，Safari 讀不到同資料夾裡的其他檔案，導致畫面空白、選單也是空的。改成單一檔案後就不會有這個問題了。
 
 ## 題庫更新方式
 1. 更新 `app_data` 裡的 Excel 檔案。
@@ -13,8 +16,12 @@ GitHub: https://github.com/e063047/english-speaking-practice
    ```bash
    cd web/tools
    python3 convert_excel.py
+   python3 build_index.py
    ```
-3. 重新整理網頁即可看到最新題目（需要事先 `pip3 install openpyxl`）。
+   （第一步把 Excel 轉成 `data/sentences.js`，第二步把最新的題庫和程式碼打包成單一的 `index.html`。需要事先 `pip3 install openpyxl`。）
+3. 把新產生的 `index.html` 重新傳一次給 iPhone/iPad（取代舊檔案）即可看到最新題目。
+
+若你只是改了 `app.js`、`style.css`、`web/js/quiz-logic.js` 或 `web/js/bank-store.js`（沒有動 Excel），只需要重跑 `python3 build_index.py` 即可，不用重跑 `convert_excel.py`。
 
 **注意**：練習題庫的收藏清單是用每個句子的「編號」記住的。新增句子請一律加在 Excel 最後面，**不要**更改既有列的「編號」，否則原本收藏的句子會悄悄對應到錯誤的內容。
 

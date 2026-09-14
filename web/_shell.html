@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>英文口說練習</title>
+  <style>
+<!--STYLE-->
+  </style>
+</head>
+<body>
+  <main class="app">
+    <h1>英文口說練習</h1>
+
+    <div class="controls">
+      <label class="control">
+        <span>分類</span>
+        <select id="category-select"></select>
+      </label>
+      <label class="control">
+        <span>出題模式</span>
+        <select id="mode-select">
+          <option value="sequential">照順序</option>
+          <option value="random">隨機出題</option>
+        </select>
+      </label>
+    </div>
+
+    <p id="empty-message" class="empty-message" hidden>題庫目前是空的，請先在練習中把句子加入題庫。</p>
+
+    <section id="quiz-card" class="quiz-card">
+      <p id="zh-sentence" class="zh-sentence"></p>
+
+      <div class="en-wrapper">
+        <p id="en-sentence" class="en-sentence"></p>
+        <div id="en-cover" class="en-cover"></div>
+      </div>
+
+      <div class="button-row">
+        <button id="reveal-button" class="btn btn-primary" type="button">看結果</button>
+        <button id="replay-audio-button" class="btn btn-icon" type="button" hidden>🔊 重播發音</button>
+      </div>
+
+      <div class="button-row">
+        <button id="toggle-bank-button" class="btn" type="button">☆ 加入練習題庫</button>
+        <button id="next-button" class="btn btn-primary" type="button">下一題</button>
+      </div>
+    </section>
+
+    <section class="bank-io">
+      <button id="export-bank-button" class="btn" type="button">匯出練習題庫清單</button>
+      <label class="btn btn-file">
+        匯入練習題庫清單
+        <input id="import-bank-input" type="file" accept=".json,application/json" hidden>
+      </label>
+    </section>
+  </main>
+
+  <script>
+<!--SENTENCES-->
+  </script>
+  <script>
+<!--QUIZ_LOGIC-->
+  </script>
+  <script>
+<!--BANK_STORE-->
+  </script>
+  <script>
+<!--APP-->
+  </script>
+</body>
+</html>
